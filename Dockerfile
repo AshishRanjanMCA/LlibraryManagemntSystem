@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17
+FROM eclipse-temurin:21
 WORKDIR /app
 
 COPY target/librarymanagement-0.0.1-SNAPSHOT.jar app.jar
