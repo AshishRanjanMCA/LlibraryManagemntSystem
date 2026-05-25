@@ -22,7 +22,7 @@ services:
     container_name: library-management-app
 
     ports:
-      - "8080:8080"
+      - "9090:8080"
 
     depends_on:
       - mysql
