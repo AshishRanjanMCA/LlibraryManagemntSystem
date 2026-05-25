@@ -39,26 +39,14 @@ pipeline {
             }
         }
 
-        stage('Stop Old Container') {
-            steps {
-                sh '''
-                docker stop $CONTAINER_NAME || true
-                docker rm $CONTAINER_NAME || true
-                '''
-            }
-        }
-
-        stage('Run Docker Container') {
-            steps {
-                sh '''
-                docker run -d \
-                --name $CONTAINER_NAME \
-                -p 9090:8080 \
-                $APP_NAME
-                '''
-            }
-        }
-
+       stage('Deploy using Docker Compose') {
+    steps {
+        sh '''
+        docker compose down
+        docker compose up -d --build
+        '''
+    }
+}
     }
 
     post {
